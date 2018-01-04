@@ -4,9 +4,14 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var PORT = process.env.PORT || 3000;
 
-// How do we 'require' the candyRouter file?
-var candyRouter;
+
+
+
+
+// Requires the candyRouter file to establish backend route endpoints
+var candyRouter = require('./candyRouter');
 
 app.use(bodyParser.json());
 
@@ -14,4 +19,13 @@ app.use(bodyParser.json());
 //through our candyRouter?
 //Hint: you need app.use
 
-app.listen(3000);
+//sets url to localhost:3000/candies to be used with candyRouter endpoints
+app.use('/candies', candyRouter);
+
+
+
+app.listen(PORT, function(){
+	console.log('connected');
+});
+
+//app.listen(3000);
