@@ -60,7 +60,7 @@ router.put('/:id', function(req, res){
 			candies[i].color = req.body.color;
 		} else {
 			console.log('candy not found');
-			res.send('Cannot find candy at id ' + req.params.id);
+			
 		}
 	}
 
